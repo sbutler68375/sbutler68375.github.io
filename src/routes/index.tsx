@@ -82,10 +82,10 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
       type="button"
       className={`shot ${className}`}
       onClick={() => hasImages && setOpen(i)}
-      aria-label={`Open ${project.images[i].alt}`}
+      aria-label={`Open ${project.images[i]!.alt}`}
       disabled={!hasImages}
     >
-      <Media image={project.images[i]} className="h-full w-full" />
+      <Media image={project.images[i]!} className="h-full w-full" />
     </button>
   );
   return (
