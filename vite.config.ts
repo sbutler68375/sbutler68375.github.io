@@ -11,5 +11,8 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    // Prerender every route to static HTML so the site can be hosted on GitHub Pages.
+    // Skip links to static files (e.g. /resume.pdf) — they're copied from public/, not rendered.
+    prerender: { enabled: true, crawlLinks: true, filter: ({ path }) => !/\.\w+$/.test(path) },
   },
 });

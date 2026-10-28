@@ -10,9 +10,19 @@ export function Placeholder({ label, className = "" }: { label: string; classNam
   );
 }
 
-export function Media({ image, className = "" }: { image: SiteImage; className?: string }) {
+export function Media({
+  image,
+  className = "",
+  fit = "cover",
+}: {
+  image: SiteImage;
+  className?: string;
+  fit?: "cover" | "contain";
+}) {
   if (!image.src) return <Placeholder label={image.label} className={className} />;
-  return <img src={image.src} alt={image.alt} className={`object-cover ${className}`} loading="lazy" />;
+  // Cover crops from the top so screenshot headers and faces stay in frame.
+  const fitClass = fit === "contain" ? "object-contain" : "object-cover object-top";
+  return <img src={image.src} alt={image.alt} className={`${fitClass} ${className}`} loading="lazy" />;
 }
 
 export function Reveal({ children, className = "" }: { children: ReactNode; className?: string }) {
@@ -81,7 +91,7 @@ export function Lightbox({
       onClick={onClose}
     >
       <div className="relative flex w-full max-w-5xl flex-col items-center gap-4" onClick={(e) => e.stopPropagation()}>
-        <Media image={img} className="max-h-[78vh] w-full rounded-lg aspect-video" />
+        <Media image={img} fit="contain" className="max-h-[78vh] w-full rounded-lg" />
         <div className="flex items-center gap-3 font-mono text-xs text-muted-foreground">
           <button className="btn-ghost" onClick={prev} aria-label="Previous image">←</button>
           <span>{index + 1} / {n}</span>
