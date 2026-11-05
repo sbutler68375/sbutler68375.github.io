@@ -1,24 +1,11 @@
-# Pixel Perfect Replica
+# sbutler68375.github.io
 
-Implement exactly the screenshot and nothing else
+Personal portfolio site for Sean Butler: Information Systems at BYU, focused on data analytics, data science, and AI/data engineering.
 
-This project was built with [Lovable](https://lovable.dev).
+Live at **https://sbutler68375.github.io**
 
-## Build with Lovable
+Plain HTML, CSS, and JavaScript with no build step. GitHub Pages serves the `main` branch as is.
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/362c1c99-8873-449f-b2e4-a6462f395a1a).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+- `index.html`: profile, Projects/Resume tabs, contact
+- `styles.css`, `script.js`: styling, animated background, tabs, screenshot viewer
+- `assets/`: headshot, resume PDF, project screenshots

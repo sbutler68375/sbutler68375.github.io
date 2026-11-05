@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sean Butler — Data Analyst</title>
+<meta name="description" content="Sean Butler — Information Systems senior at BYU focused on data analytics and data/AI engineering.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=13">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></symbol>
+  <symbol id="i-dl" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+</svg>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="bg-fade" aria-hidden="true"></div>
+<header class="site-header">
+  <nav class="nav" aria-label="Main">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>SEAN.</a>
+    <div class="nav-links">
+      <a class="link" href="index.html" aria-current="page">Home</a>
+      <a class="icon-btn" href="https://www.linkedin.com/in/sean-butler-275a27253" target="_blank" rel="noopener" aria-label="LinkedIn profile"><svg class="icon"><use href="#i-in"/></svg></a>
+      <a class="icon-btn" href="https://github.com/sbutler68375" target="_blank" rel="noopener" aria-label="GitHub profile"><svg class="icon"><use href="#i-github"/></svg></a>
+    </div>
+  </nav>
+</header>
+<main>
+  <section class="hero wrap">
+    <div>
+      <h1>Sean Butler</h1>
+      <p class="role">Information Systems · BYU · Graduating April 2027</p>
+      <p class="typed" aria-label="Data Analyst"><span id="typed-text" aria-hidden="true">Data Analyst</span><span class="caret" aria-hidden="true"></span></p>
+      <p class="lede">Senior in Information Systems with experience in Analytics, Data Science, AI and Data Engineering. Passionate about building data-driven solutions within sports and business. Recognized for analytical thinking, mentoring, and rapid learning.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="mailto:seanbutler212@gmail.com"><svg class="icon"><use href="#i-mail"/></svg>Email</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/sean-butler-275a27253" target="_blank" rel="noopener"><svg class="icon"><use href="#i-in"/></svg>LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/sbutler68375" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"/></svg>GitHub</a>
+      </div>
+    </div>
+
+    <figure class="portrait">
+      <img src="assets/portrait.jpg" alt="Headshot of Sean Butler" data-optional>
+      <div class="ph">
+        <span class="ph-circle"><svg class="icon"><use href="#i-user"/></svg></span>
+        <span class="label">Portrait placeholder</span>
+      </div>
+      <figcaption class="label loc">Provo, Utah</figcaption>
+    </figure>
+  </section>
+
+  <section class="section wrap" id="work">
+    <nav class="tabs" role="tablist" aria-label="Sections">
+      <a class="tab" role="tab" id="tab-projects" href="#work" data-panel="panel-projects" aria-controls="panel-projects" aria-selected="true">Projects</a>
+      <a class="tab" role="tab" id="tab-resume" href="#resume" data-panel="panel-resume" aria-controls="panel-resume" aria-selected="false">Resume</a>
+    </nav>
+    <div class="panel" id="panel-projects" role="tabpanel" aria-labelledby="tab-projects">
+    <div class="grid">
+    <article class="card">
+      <div class="card-art zoomable" role="button" tabindex="0" data-title="Customer Churn Prediction" data-shots="assets/projects/churn/1.jpg,assets/projects/churn/2.jpg,assets/projects/churn/3.jpg" aria-label="View Customer Churn Prediction screenshots">
+        <img src="assets/projects/churn/1.jpg" alt="Customer Churn Prediction screenshot 1" data-optional>
+        <canvas data-art="terrain" aria-hidden="true"></canvas>
+        <span class="tag-r">Placeholder art</span><span class="view-hint">View screenshots</span>
+      </div>
+      <div class="card-body">
+        <p class="card-kicker">Machine learning</p>
+        <h3>Customer Churn Prediction</h3>
+        <p>A machine learning model that predicts which customers are likely to churn, with an executive overview, account-level deep dive, and model diagnostics.</p>
+        <a class="repo" href="https://github.com/sbutler68375/churn_predictor" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"/></svg>View repository<svg class="icon"><use href="#i-out"/></svg></a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-art zoomable" role="button" tabindex="0" data-title="ML Hockey Analytics Dashboard" data-shots="assets/projects/hockey/1.jpg,assets/projects/hockey/2.jpg,assets/projects/hockey/3.jpg" aria-label="View ML Hockey Analytics Dashboard screenshots">
+        <img src="assets/projects/hockey/1.jpg" alt="ML Hockey Analytics Dashboard screenshot 1" data-optional>
+        <canvas data-art="network" aria-hidden="true"></canvas>
+        <span class="tag-r">Placeholder art</span><span class="view-hint">View screenshots</span>
+      </div>
+      <div class="card-body">
+        <p class="card-kicker">Machine learning</p>
+        <h3>ML Hockey Analytics Dashboard</h3>
+        <p>A hockey analytics dashboard that uses machine learning to generate team and player ratings from game data.</p>
+        <a class="repo" href="https://github.com/sbutler68375/hockey_dashboard" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"/></svg>View repository<svg class="icon"><use href="#i-out"/></svg></a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-art zoomable" role="button" tabindex="0" data-title="Nonprofit Impact Tracking Website" data-shots="assets/projects/ella-rises/1.jpg,assets/projects/ella-rises/2.jpg,assets/projects/ella-rises/3.jpg" aria-label="View Nonprofit Impact Tracking Website screenshots">
+        <img src="assets/projects/ella-rises/1.jpg" alt="Nonprofit Impact Tracking Website screenshot 1" data-optional>
+        <canvas data-art="bars" aria-hidden="true"></canvas>
+        <span class="tag-r">Placeholder art</span><span class="view-hint">View screenshots</span>
+      </div>
+      <div class="card-body">
+        <p class="card-kicker">Built for Ella Rises</p>
+        <h3>Nonprofit Impact Tracking Website</h3>
+        <p>A full-stack nonprofit platform with a program analytics dashboard and event management to track reach and impact.</p>
+        <a class="repo" href="https://github.com/sbutler68375/Intex2025_EllaRises" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"/></svg>View repository<svg class="icon"><use href="#i-out"/></svg></a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-art zoomable" role="button" tabindex="0" data-title="Nonprofit Donor Platform" data-shots="assets/projects/open-arms/1.jpg,assets/projects/open-arms/2.jpg,assets/projects/open-arms/3.jpg" aria-label="View Nonprofit Donor Platform screenshots">
+        <img src="assets/projects/open-arms/1.jpg" alt="Nonprofit Donor Platform screenshot 1" data-optional>
+        <canvas data-art="orbit" aria-hidden="true"></canvas>
+        <span class="tag-r">Placeholder art</span><span class="view-hint">View screenshots</span>
+      </div>
+      <div class="card-body">
+        <p class="card-kicker">Built for Open Arms</p>
+        <h3>Nonprofit Donor Platform</h3>
+        <p>A full-stack nonprofit platform with admin analytics and a safehouse map that turns operational data into insight.</p>
+        <a class="repo" href="https://github.com/sbutler68375/Intex2026_OpenArms" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"/></svg>View repository<svg class="icon"><use href="#i-out"/></svg></a>
+      </div>
+    </article>
+    </div>
+    </div>
+    <div class="panel" id="panel-resume" role="tabpanel" aria-labelledby="tab-resume" hidden>
+      <div class="resume-bar">
+        <p>Information Systems at BYU, graduating April 2027.</p>
+        <a class="btn btn-primary" href="assets/resume.pdf" download><svg class="icon"><use href="#i-dl"/></svg>Download PDF</a>
+      </div>
+      <div class="resume-frame resume-frame--inline">
+        <object data="assets/resume.pdf#view=FitH" type="application/pdf" aria-label="Sean Butler resume">
+          <div class="resume-ph">
+            <p>Your browser can't show the PDF here. <a href="assets/resume.pdf">Open the resume</a> instead.</p>
+          </div>
+        </object>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap" style="padding:0">
+      <h2>Let's get in touch.</h2>
+      <div class="actions">
+        <a class="btn btn-primary" href="mailto:seanbutler212@gmail.com"><svg class="icon"><use href="#i-mail"/></svg>Email</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/sean-butler-275a27253" target="_blank" rel="noopener"><svg class="icon"><use href="#i-in"/></svg>LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/sbutler68375" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"/></svg>GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© <span data-year></span> Sean Butler</span>
+    <span>Provo, Utah</span>
+  </div>
+</footer>
+<script src="script.js?v=10"></script>
+</body>
+</html>
