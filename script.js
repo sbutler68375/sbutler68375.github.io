@@ -250,8 +250,8 @@ document.querySelectorAll("[data-year]").forEach(el => el.textContent = new Date
   document.querySelectorAll("[data-open-tab]").forEach((a) =>
     a.addEventListener("click", (e) => { e.preventDefault(); select(document.getElementById(a.dataset.openTab), true); }));
   const fromHash = () => {
-    if (location.hash === "#resume") select(tabs[1], true);
-    else if (location.hash === "#work") select(tabs[0], false);
+    const t = tabs.find((x) => x.getAttribute("href") === location.hash);
+    if (t) select(t, t !== tabs[0]);
   };
   fromHash();
   addEventListener("hashchange", fromHash);

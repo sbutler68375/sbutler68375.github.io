@@ -51,7 +51,6 @@ main,footer{position:relative;z-index:1}
 .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(38px,4.6vw,62px);line-height:1;letter-spacing:-.025em}
 .hero .role{color:var(--amber);font-size:15px;letter-spacing:.06em;margin-top:28px}
 .typed{font-family:var(--serif);font-style:italic;color:var(--amber);font-size:20px;margin-top:20px;display:flex;align-items:center;gap:12px;min-height:36px}
-.typed::before{content:"";width:20px;height:1px;background:var(--amber);opacity:.6}
 .caret{display:inline-block;width:2px;height:1.05em;background:var(--ink);margin-left:3px;vertical-align:-3px;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 .hero p.lede{color:var(--ink-soft);font-size:15.5px;line-height:1.7;margin-top:24px;max-width:none;width:min(100%,580px)}
@@ -89,6 +88,16 @@ main,footer{position:relative;z-index:1}
 .resume-bar p{color:var(--ink-soft);font-size:15px}
 .resume-frame.resume-frame--inline{margin:0}
 .resume-ph a{color:var(--amber);border-bottom:1px solid rgba(124,196,255,.35)}
+.about{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:56px;align-items:start}
+.about-text p{color:var(--ink-soft);font-size:15.5px;line-height:1.8}
+.about-text p + p{margin-top:18px}
+.about-facts{border-left:1px solid rgba(124,196,255,.22);padding-left:32px;display:grid;gap:22px}
+.about-facts dt{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--amber);margin-bottom:6px}
+.about-facts dd{color:var(--ink);font-size:15px;line-height:1.55}
+.about-facts ul{list-style:disc;padding-left:18px}
+.about-facts li::marker{color:var(--amber)}
+.about-facts li + li{margin-top:4px}
+@media (max-width:860px){.about{grid-template-columns:1fr;gap:36px}.about-facts{border-left:0;border-top:1px solid rgba(124,196,255,.22);padding:28px 0 0}}
 .section{padding:24px 32px 88px}
 .section-head{display:grid;grid-template-columns:1fr minmax(0,480px);gap:48px;align-items:start;margin-bottom:52px}
 .eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--amber)}
@@ -183,6 +192,8 @@ body.lb-open{overflow:hidden}
   .card-art{flex:none;align-self:stretch;margin:14px 14px 0}
 }
 @media (max-width:640px){
+  .tabs{gap:22px}
+  .tab{font-size:22px}
   body{font-size:14px}
   .nav{height:64px;padding:0 16px}
   .brand-mark{width:30px;height:30px}
