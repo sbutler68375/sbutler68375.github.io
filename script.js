@@ -166,18 +166,19 @@ document.querySelectorAll("img[data-optional]").forEach(img => {
 /* Footer year */
 document.querySelectorAll("[data-year]").forEach(el => el.textContent = new Date().getFullYear());
 
-/* Screenshot viewer: click a project image to open it, then browse the rest */
+/* Screenshot viewer: click a project image, or an About photo, to open it */
 (() => {
   const cards = document.querySelectorAll(".card-art[data-shots]");
-  if (!cards.length) return;
+  const galleries = document.querySelectorAll(".about-gallery[data-shots]");
+  if (!cards.length && !galleries.length) return;
   const lb = document.createElement("div");
   lb.className = "lightbox";
   lb.setAttribute("role", "dialog");
   lb.setAttribute("aria-modal", "true");
   lb.innerHTML = `
     <button class="lb-btn lb-close" aria-label="Close">&times;</button>
-    <button class="lb-btn lb-prev" aria-label="Previous screenshot">&lsaquo;</button>
-    <button class="lb-btn lb-next" aria-label="Next screenshot">&rsaquo;</button>
+    <button class="lb-btn lb-prev" aria-label="Previous">&lsaquo;</button>
+    <button class="lb-btn lb-next" aria-label="Next">&rsaquo;</button>
     <p class="lb-title"><span class="lb-name"></span><span class="lb-count"></span></p>
     <div class="lb-stage"><img alt=""></div>
     <div class="lb-thumbs"></div>`;
@@ -186,24 +187,30 @@ document.querySelectorAll("[data-year]").forEach(el => el.textContent = new Date
   const name = lb.querySelector(".lb-name");
   const count = lb.querySelector(".lb-count");
   const thumbs = lb.querySelector(".lb-thumbs");
-  let shots = [], i = 0, title = "", opener = null;
+  let shots = [], alts = [], i = 0, title = "", noun = "Screenshot", opener = null;
 
   const show = (n) => {
     i = (n + shots.length) % shots.length;
     img.src = shots[i];
-    img.alt = `${title} screenshot ${i + 1}`;
+    img.alt = alts[i] || `${title} ${noun.toLowerCase()} ${i + 1}`;
     count.textContent = `${i + 1} / ${shots.length}`;
     thumbs.querySelectorAll("button").forEach((b, k) => b.setAttribute("aria-current", k === i));
   };
-  const open = (card) => {
-    opener = card;
-    shots = card.dataset.shots.split(",");
-    title = card.dataset.title;
+  const open = (root, start, focusEl) => {
+    opener = focusEl || root;
+    shots = root.dataset.shots.split(",");
+    title = root.dataset.title || "";
+    noun = root.dataset.kind === "photo" ? "Photo" : "Screenshot";
+    const photos = root.querySelectorAll(".about-photo");
+    alts = photos.length
+      ? [...photos].map((b) => b.dataset.alt || "")
+      : shots.map((_, k) => `${title} screenshot ${k + 1}`);
     name.textContent = title;
     thumbs.innerHTML = shots.map((src, k) =>
-      `<button aria-label="Screenshot ${k + 1}"><img src="${src}" alt=""></button>`).join("");
+      `<button aria-label="${noun} ${k + 1}"><img src="${src}" alt=""></button>`).join("");
     thumbs.querySelectorAll("button").forEach((b, k) => b.addEventListener("click", () => show(k)));
-    show(0);
+    lb.classList.toggle("lb-photos", noun === "Photo");
+    show(start || 0);
     lb.classList.add("open");
     document.body.classList.add("lb-open");
     lb.querySelector(".lb-close").focus();
@@ -215,9 +222,14 @@ document.querySelectorAll("[data-year]").forEach(el => el.textContent = new Date
   };
 
   cards.forEach((card) => {
-    card.addEventListener("click", () => open(card));
+    card.addEventListener("click", () => open(card, 0));
     card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(card); }
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(card, 0); }
+    });
+  });
+  galleries.forEach((gallery) => {
+    gallery.querySelectorAll(".about-photo").forEach((btn) => {
+      btn.addEventListener("click", () => open(gallery, Number(btn.dataset.index) || 0, btn));
     });
   });
   lb.querySelector(".lb-close").addEventListener("click", close);
